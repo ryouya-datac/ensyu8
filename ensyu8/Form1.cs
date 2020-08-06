@@ -12,7 +12,7 @@ namespace ensyu8
 {
     public partial class Form1 : Form
     {
-        int vx=-10;
+        int vx=-20;
         int vy=-10;
         string kao = "(・◇・)";
         
@@ -28,22 +28,22 @@ namespace ensyu8
 
                 if (label1.Left < 0)
                 {
-                    vx = 10;
+                    vx = Math.Abs(vx);
                 }
 
-                else if (label1.Top < 0)
+                if (label1.Right > ClientSize.Width)
                 {
-                    vy = 10;
+                    vx =-Math.Abs(vx);
                 }
 
-                else if (label1.Right > 0)
+                if (label1.Top < 0)
                 {
-                    vx = 10;
+                    vy=Math.Abs(vy);
                 }
 
-                else if (label1.Bottom > 0)
+                if (label1.Bottom > ClientSize.Height)
                 {
-                    vx = 10;
+                    vy = -Math.Abs(vy);
                 }
 
                 string t = label1.Text;
@@ -61,7 +61,7 @@ namespace ensyu8
         private void Form1_Load(object sender, EventArgs e)
         {
             //MessageBox.Show("幅" + ClientSize.Width);
-            //MessageBox.Show("高さ" + ClientSize.Width);
+            //MessageBox.Show("高さ" + ClientSize.Height);
            
         }
     }
